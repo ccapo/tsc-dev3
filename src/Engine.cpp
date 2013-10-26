@@ -658,7 +658,7 @@ void Engine::GenerateCaveSystem(int &id)
 		// Add Guardian
 		map->mapData[id].AddNpc(Entity::GUARDIAN, map->mapData[id].width/2, map->mapData[id].height/2);
 
-		// Copy equipment names to each town
+		// Copy equipment names to each temple
 		map->mapData[id].WeaponNames = map->mapData[WORLD_MAP].WeaponNames;
 		map->mapData[id].ShieldNames = map->mapData[WORLD_MAP].ShieldNames;
 		map->mapData[id].ArmourNames = map->mapData[WORLD_MAP].ArmourNames;
@@ -711,14 +711,14 @@ void Engine::GenerateCaveSystem(int &id)
 		int xFrom = RNG->getInt(2, map->mapData[WORLD_MAP].width - 3);
 		int yFrom = RNG->getInt(2, map->mapData[WORLD_MAP].height - 3);
 
-		// Copy equipment names to each town
+		//cout << "Cave mapID: " << id << endl;
+		map->mapData[id].GenerateMap(id, CAVETYPE_01);
+
+		// Copy equipment names to each cave
 		map->mapData[id].WeaponNames = map->mapData[WORLD_MAP].WeaponNames;
 		map->mapData[id].ShieldNames = map->mapData[WORLD_MAP].ShieldNames;
 		map->mapData[id].ArmourNames = map->mapData[WORLD_MAP].ArmourNames;
 		map->mapData[id].AccessoryNames = map->mapData[WORLD_MAP].AccessoryNames;
-
-		//cout << "Cave mapID: " << id << endl;
-		map->mapData[id].GenerateMap(id, CAVETYPE_01);
 
 		int xTo = RNG->getInt(2, map->mapData[id].width - 3);
 		int yTo = RNG->getInt(2, map->mapData[id].height - 3);
@@ -806,6 +806,12 @@ void Engine::GenerateCaveSystem(int &id)
 			int srcCaveType = srcDepth/5;
 
 			map->mapData[srcMapID].GenerateMap(srcMapID, srcCaveType);
+
+			// Copy equipment names to each cave
+			map->mapData[id].WeaponNames = map->mapData[WORLD_MAP].WeaponNames;
+			map->mapData[id].ShieldNames = map->mapData[WORLD_MAP].ShieldNames;
+			map->mapData[id].ArmourNames = map->mapData[WORLD_MAP].ArmourNames;
+			map->mapData[id].AccessoryNames = map->mapData[WORLD_MAP].AccessoryNames;
 
 			//printf("Map: %d, Depth: %d\n", srcMapID, srcDepth);
 			//printf("Connected To Maps: ");
