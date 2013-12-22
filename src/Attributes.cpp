@@ -418,15 +418,17 @@ Wearable::Wearable(WearableType type): type(type), worn(false)
 			// delete condition;
 			// condition = NULL;
 
-			//Condition condition = Condition(Condition::MISC);
-			//int hp = condition.stats.hpmax;
-			//int mp = condition.stats.mpmax;
-			//condition.duration = -1;
-			//condition.interval = 0;
-			//conditionList2.addToBack(condition);
+			Condition condition = Condition(Condition::MISC);
+			int hp = condition.stats.hpmax;
+			int mp = condition.stats.mpmax;
+			condition.stats.hpmax = 0;
+			condition.stats.mpmax = 0;
+			condition.duration = -1;
+			condition.interval = 0;
+			conditionList2.addToBack(condition);
 
 			Condition condition2 = Condition(Condition::HPMAX_PLUS);
-			//condition2.stats.hpmax = hp;
+			condition2.stats.hpmax = hp;
 			condition2.msgStart = "msgStart";
 			condition2.msgStop = "msgStop";
 			condition2.displayMsgStart = false;
@@ -434,12 +436,28 @@ Wearable::Wearable(WearableType type): type(type), worn(false)
 			conditionList2.addToBack(condition2);
 
 			Condition condition3 = Condition(Condition::HP_PLUS);
-			//condition3.status.hp = hp;
+			condition3.status.hp = hp;
 			condition3.msgStart = "msgStart";
 			condition3.msgStop = "msgStop";
 			condition3.displayMsgStart = false;
 			condition3.displayMsgStop = false;
 			conditionList2.addToBack(condition3);
+
+			Condition condition4 = Condition(Condition::MPMAX_PLUS);
+			condition4.stats.mpmax = mp;
+			condition4.msgStart = "msgStart";
+			condition4.msgStop = "msgStop";
+			condition4.displayMsgStart = false;
+			condition4.displayMsgStop = false;
+			conditionList2.addToBack(condition4);
+
+			Condition condition5 = Condition(Condition::MP_PLUS);
+			condition5.status.mp = mp;
+			condition5.msgStart = "msgStart";
+			condition5.msgStop = "msgStop";
+			condition5.displayMsgStart = false;
+			condition5.displayMsgStop = false;
+			conditionList2.addToBack(condition5);
 			break;
 		}
 		case LEATHER_ARMOUR:

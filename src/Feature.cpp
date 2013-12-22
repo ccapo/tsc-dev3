@@ -17,8 +17,12 @@ void FloorFeature::Action(Object *owner, int x, int y)
 	 	owner->xc += owner->x.get(i);
 	 	owner->yc += owner->y.get(i);
 	}
-	owner->xc /= static_cast<float>(owner->sym.size());
-	owner->yc /= static_cast<float>(owner->sym.size());
+
+	if( owner->sym.size() > 0 )
+	{
+		owner->xc /= static_cast<float>(owner->sym.size());
+		owner->yc /= static_cast<float>(owner->sym.size());
+	}
 
 	if( owner == engine->player )
 	{
@@ -71,8 +75,12 @@ void FloorFeature::Action(Object *owner, int x, int y)
 				owner->xc += owner->x.get(i);
 				owner->yc += owner->y.get(i);
 			}
-			owner->xc /= static_cast<float>(owner->sym.size());
-			owner->yc /= static_cast<float>(owner->sym.size());
+
+			if( owner->sym.size() > 0 )
+			{
+				owner->xc /= static_cast<float>(owner->sym.size());
+				owner->yc /= static_cast<float>(owner->sym.size());
+			}
 			engine->key.vk = TCODK_NONE;
 		}
 	}
@@ -112,8 +120,12 @@ void DoorFeature::Action(Object *owner, int x, int y)
 			owner->xc += owner->x.get(i);
 			owner->yc += owner->y.get(i);
 		}
-		owner->xc /= static_cast<float>(owner->sym.size());
-		owner->yc /= static_cast<float>(owner->sym.size());
+
+		if( owner->sym.size() > 0 )
+		{
+			owner->xc /= static_cast<float>(owner->sym.size());
+			owner->yc /= static_cast<float>(owner->sym.size());
+		}
 	}
 	else
 	{
@@ -178,8 +190,12 @@ void TrapFeature::Action(Object *owner, int x, int y)
 			owner->xc += owner->x.get(i);
 			owner->yc += owner->y.get(i);
 		}
-		owner->xc /= static_cast<float>(owner->sym.size());
-		owner->yc /= static_cast<float>(owner->sym.size());
+
+		if( owner->sym.size() > 0 )
+		{
+			owner->xc /= static_cast<float>(owner->sym.size());
+			owner->yc /= static_cast<float>(owner->sym.size());
+		}
 	}
 
 	if( !activated || trapType == TRAP_INVISIBLEBARRIER )
@@ -199,8 +215,12 @@ void TrapFeature::Action(Object *owner, int x, int y)
 				owner->xc += owner->x.get(i);
 				owner->yc += owner->y.get(i);
 			}
-			owner->xc /= static_cast<float>(owner->sym.size());
-			owner->yc /= static_cast<float>(owner->sym.size());
+
+			if( owner->sym.size() > 0 )
+			{
+				owner->xc /= static_cast<float>(owner->sym.size());
+				owner->yc /= static_cast<float>(owner->sym.size());
+			}
 		}
 		else
 		{

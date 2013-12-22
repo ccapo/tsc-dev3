@@ -9,8 +9,12 @@ Object::Object(TCODList<int> x, TCODList<int> y, TCODList<int> sym, const TCODCo
 		xc += x.get(i);
 		yc += y.get(i);
 	}
-	xc /= static_cast<float>(sym.size());
-	yc /= static_cast<float>(sym.size());
+
+	if( sym.size() > 0 )
+	{
+		xc /= static_cast<float>(sym.size());
+		yc /= static_cast<float>(sym.size());
+	}
 }
 
 Object::~Object()
